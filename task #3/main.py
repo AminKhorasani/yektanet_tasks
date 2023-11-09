@@ -1,0 +1,31 @@
+from BaseAdvertising import BaseAdvertising
+from Advertiser import Advertiser
+from Ad import Ad
+
+base_advertising = BaseAdvertising()
+advertiser_1 = Advertiser(1, "name1")
+advertiser_2 = Advertiser(2, "name2")
+ad_1 = Ad(1, "title1", "img_url1", "link1", advertiser_1)
+ad_2 = Ad(2, "title2", "img_url2", "link2", advertiser_2)
+ad_3 = Ad(2, "title2", "img_url2", "link2", advertiser_1)
+base_advertising.describe_me()
+ad_2.describe_me()
+advertiser_1.describe_me()
+ad_1.inc_views()
+ad_1.inc_views()
+ad_1.inc_views()
+ad_1.inc_views()
+ad_2.inc_views()
+ad_3.inc_views()
+ad_1.inc_clicks()
+ad_1.inc_clicks()
+ad_2.inc_clicks()
+ad_3.inc_clicks()
+print(advertiser_2.pub_name)
+advertiser_2.pub_name = "new name"
+print(advertiser_2.pub_name)
+print(ad_1.get_clicks())
+print(advertiser_1.get_clicks())
+print(advertiser_2.get_clicks())
+print(Advertiser.get_total_clicks())
+Advertiser.help()
