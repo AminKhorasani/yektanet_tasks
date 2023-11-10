@@ -46,7 +46,7 @@ class Ad(BaseAdvertising):
         self._advertiser = new_advertiser
 
     def inc_clicks(self):
-        self.clicks += 1
+        super().inc_clicks()
         self._advertiser.inc_clicks()
 
     def describe_me(self):

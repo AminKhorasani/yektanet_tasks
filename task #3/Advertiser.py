@@ -8,15 +8,15 @@ class Advertiser(BaseAdvertising):
     def __init__(self, media_id: int, pub_name: str):
         super().__init__()
         self._id = media_id
-        self._pubName = pub_name
+        self._pub_name = pub_name
 
     @property
     def pub_name(self) -> str:
-        return self._pubName
+        return self._pub_name
 
     @pub_name.setter
     def pub_name(self, new_name: str):
-        self._pubName = new_name
+        self._pub_name = new_name
 
     def inc_clicks(self):
         self.clicks += 1
