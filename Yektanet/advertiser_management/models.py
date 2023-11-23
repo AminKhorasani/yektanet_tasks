@@ -1,3 +1,20 @@
 from django.db import models
 
-# Create your models here.
+
+class Advertiser(models.Model):
+
+    # fields
+    name = models.CharField(max_length=50)
+    views = models.PositiveIntegerField(default=0)
+    clicks = models.PositiveIntegerField(default=0)
+
+
+class Ad(models.Model):
+
+    # fields
+    title = models.CharField(max_length=100)
+    views = models.PositiveIntegerField(default=0)
+    clicks = models.PositiveIntegerField(default=0)
+    img_url = models.URLField()
+    landing = models.URLField()
+
