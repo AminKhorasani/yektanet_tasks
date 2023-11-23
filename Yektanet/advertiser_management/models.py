@@ -18,5 +18,3 @@ class Ad(models.Model):
     img_url = models.URLField(max_length=300)
     landing = models.URLField()
     advertiser = models.ForeignKey(Advertiser, on_delete=models.PROTECT)
-
-
