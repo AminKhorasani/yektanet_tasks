@@ -8,6 +8,17 @@ class Advertiser(models.Model):
     views = models.PositiveIntegerField(default=0)
     clicks = models.PositiveIntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
+    def inc_clicks(self):
+        self.clicks += 1
+        self.save()
+
+    def inc_views(self):
+        self.views += 1
+        self.save()
+
 
 class Ad(models.Model):
 
@@ -18,3 +29,16 @@ class Ad(models.Model):
     img_url = models.URLField(max_length=300)
     landing = models.URLField()
     advertiser = models.ForeignKey(Advertiser, on_delete=models.PROTECT, null=True)
+
+    def __str__(self):
+        return self.title
+
+    def inc_clicks(self):
+        self.clicks += 1
+        self.advertiser.inc_clicks()
+        self.save()
+
+    def inc_views(self):
+        self.views += 1
+        self.advertiser.inc_views()
+        self.save()
