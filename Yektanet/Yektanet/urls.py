@@ -1,22 +1,24 @@
-"""Yektanet URL Configuration
+"""yektanet url configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+the `urlpatterns` list routes urls to views. for more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+examples:
+function views
+    1. add an import:  from my_app import views
+    2. add an url to urlpatterns:  path('', views.home, name='home')
+class-based views
+    1. add an import:  from other_app.views import home
+    2. add an url to urlpatterns:  path('', home.as_view(), name='home')
+including another urlconf
+    1. import the include() function: from django.urls import include, path
+    2. add an url to urlpatterns:  path('', include('.urls'))
+    3. add an url to urlpatterns:  path('advertiser_management', include('advertiser_management.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.urls import path, include
+from advertiser_management import urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
+    path('', include('advertiser_management.urls')),
 ]
